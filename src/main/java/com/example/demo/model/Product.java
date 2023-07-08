@@ -6,11 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
+@Builder
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@Builder
 public class Product {
 
     @Id

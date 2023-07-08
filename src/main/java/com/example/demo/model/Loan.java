@@ -6,11 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Builder
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Loan {
 
     @Id

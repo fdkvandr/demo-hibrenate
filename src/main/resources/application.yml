@@ -7,6 +7,4 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-      naming:
-        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     show-sql: true

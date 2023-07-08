@@ -10,11 +10,11 @@ public interface ClientRepository extends JpaRepository<Client, Loan> {
 
     Client findByName(String name);
 
-    @Modifying(flushAutomatically = true)
+    @Modifying
     @Query("delete Product p where p.decisionId = :decisionId")
     void deleteAllProductsForClient(Long decisionId);
 
-    @Modifying(flushAutomatically = true)
+    @Modifying
     @Query("delete Loan l where l.decisionId = :decisionId")
     void deleteAllLoansForClient(Long decisionId);
 }

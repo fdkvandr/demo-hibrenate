@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@Builder
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@Builder
 public class Client {
 
     @Id
