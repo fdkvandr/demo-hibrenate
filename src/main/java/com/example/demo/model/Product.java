@@ -18,4 +18,7 @@ public class Product {
     private Long id;
 
     private String name;
+
+    @Column(name = "decision_id")
+    private Long decisionId;
 }

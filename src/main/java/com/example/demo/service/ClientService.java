@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -18,13 +20,20 @@ public class ClientService {
     @Transactional
     public void updateByName(String name) {
         Client client = clientRepository.findByName(name);
+
+        clientRepository.deleteAllLoansForClient(client.getDecisionId());
+        clientRepository.deleteAllProductsForClient(client.getDecisionId());
+
         System.out.println(client);
 
-        client.getLoans().removeIf(loan -> loan.getId().equals(1L));
-        client.getProducts().removeIf(product -> product.getName().equals("cr_card"));
+        client.getLoans().addAll(List.of(
+                Loan.builder().amount(123L).build(),
+                Loan.builder().amount(50L).build()));
+        client.getProducts().addAll(List.of(
+                Product.builder().name("ovd_card").build(),
+                Product.builder().name("cr_card").build()));
 
-        client.getLoans().add(Loan.builder().amount(123L).build());
-        client.getProducts().add(Product.builder().name("ovd_card").build());
+        client.setAge(23);
 
         clientRepository.save(client);
     }
