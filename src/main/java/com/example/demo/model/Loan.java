@@ -19,6 +19,5 @@ public class Loan {
 
     private Long amount;
 
-    @Column(name = "decision_id")
     private Long decisionId;
 }

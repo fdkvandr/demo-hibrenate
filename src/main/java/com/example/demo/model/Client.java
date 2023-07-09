@@ -24,15 +24,14 @@ public class Client {
 
     private Integer age;
 
-    @Column(name = "decision_id")
     private Long decisionId;
 
     @Builder.Default
-    @JoinColumn(name = "decision_id", referencedColumnName = "decision_id")
+    @JoinColumn(name = "decisionId", updatable = false)
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Loan> loans = new ArrayList<>();
 
-    @JoinColumn(name = "decision_id", referencedColumnName = "decision_id")
+    @JoinColumn(name = "decisionId", updatable = false)
     @Builder.Default
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products = new ArrayList<>();

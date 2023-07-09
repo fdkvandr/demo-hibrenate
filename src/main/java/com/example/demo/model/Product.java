@@ -19,6 +19,5 @@ public class Product {
 
     private String name;
 
-    @Column(name = "decision_id")
     private Long decisionId;
 }

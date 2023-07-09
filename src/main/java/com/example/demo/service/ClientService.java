@@ -27,11 +27,11 @@ public class ClientService {
         System.out.println(client);
 
         client.getLoans().addAll(List.of(
-                Loan.builder().amount(123L).build(),
-                Loan.builder().amount(50L).build()));
+                Loan.builder().amount(123L).decisionId(client.getDecisionId()).build(),
+                Loan.builder().amount(50L).decisionId(client.getDecisionId()).build()));
         client.getProducts().addAll(List.of(
-                Product.builder().name("ovd_card").build(),
-                Product.builder().name("cr_card").build()));
+                Product.builder().name("ovd_card").decisionId(client.getDecisionId()).build(),
+                Product.builder().name("cr_card").decisionId(client.getDecisionId()).build()));
 
         client.setAge(23);
 
